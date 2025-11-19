@@ -180,7 +180,7 @@ body{
 
 <div id="introContainer">
   <div id="introText">
-        <p>Made Only For</p>
+        <p>A Message To</p>
 
     <h1>Maliha</h1>
         <h1>🌸</h1>
@@ -198,7 +198,7 @@ body{
 
 
 <div id="proposalBox" class="proposal">
-  'No' Dile problem nei (Diye dekho)<br><br>
+  'No' Dilew problem nei (Diye dekho)<br><br>
   <button class="btn yes-btn" onclick="accept()">Yes</button>
   <button class="btn no-btn" id="noBtn">No</button>
 </div>
@@ -412,7 +412,7 @@ const noBtn=document.getElementById('noBtn');
 let noCount=0;
 noBtn.addEventListener('click',()=>{
   noCount++;
-  const msgs=["Dhore dekhaw","Ehhh 😆","Lav nei 😅","Ufff","Jedi meye 😠"];
+  const msgs=["Dhore dekhaw","Ehhh 😆","Lav nei 😅","Jedi meye 😠","Uffffff", "😒"];
   noBtn.innerText=msgs[Math.min(noCount-1,msgs.length-1)];
   const x=(Math.random()-0.5)*200;
   const y=(Math.random()-0.5)*100;
@@ -422,7 +422,7 @@ noBtn.addEventListener('click',()=>{
 function accept(){
   document.body.innerHTML=`
     <div style="padding:60px; text-align:center; font-size:2.2rem; color:#ff3d91;">
-      <br><br><br><br>Tumi kintu YES bolso! 💖<br><br>
+      <br><br><br><br>YES! 💖<br><br>
      
     </div>
   `;
