@@ -6,173 +6,75 @@
 <title>For Someone Special</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+h1 {margin-top: -10px;}
+body {
   font-family: "Bricolage Grotesque", sans-serif;
   background: linear-gradient(180deg,#fff0f6,#ffe0ef,#ffd1ea);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  min-height:100vh;
-  overflow-x:hidden;
-  position:relative;
+  display:flex; flex-direction:column; align-items:center;
+  min-height:100vh; overflow-x:hidden; position:relative;
 }
-
 #introContainer {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-  text-align:center;
-  padding:20px;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; min-height:100vh; text-align:center; padding:20px;
 }
-
 #introText {
-  font-size:1.8rem;
-  color:#c84b7a;
-  text-shadow:1px 1px 4px rgba(0,0,0,0.1);
-  margin-bottom:50px;
-  opacity:0;
-  transform:translateY(20px);
-  animation: fadeUp 1.2s forwards;
-  line-height:1;
+  font-size:1.8rem; color:#f53780a2; text-shadow:1px 1px 4px rgba(0, 0, 0, 0);
+  margin-bottom:50px; opacity:0; transform:translateY(20px);
+  animation: fadeUp 1.2s forwards; line-height:1.2;
 }
-
-#introText p {
-  margin:10px 0;
-}
-
+#introText p { margin:10px 0; }
 #startBtn{
-  padding:20px 50px;
-    font-family: "Bricolage Grotesque", sans-serif;
-
-  font-size:2rem;
-  border:none;
-  border-radius:50px;
-  /* background:linear-gradient(135deg,#ffcbcb,#ff48a4); */
-  background-color: #33333300;
-  border: 5px solid #f958ff0c;
-  color: #ffabcb ;
-  cursor:pointer;
-  box-shadow:0 12px 25px rgba(255, 61, 145, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: pulse 2s infinite;
+  padding:20px 50px; font-size:2rem; border:none; border-radius:50px;
+  background-color:#33333300; border:5px solid #ff58cd1a; color:#fc5796;
+  cursor:pointer; box-shadow:0 12px 25px rgba(255,61,145,0.4);
+  transition: transform 0.3s, box-shadow 0.3s; animation: pulse 2s infinite;
 }
-#startBtn:hover{
-  transform:scale(1.1);
-  box-shadow:0 18px 35px rgba(255,61,145,0.6);
-}
+#startBtn:hover { transform:scale(1.1); box-shadow:0 18px 35px rgba(255,61,145,0.6); }
 
 #textContainer{
-  position:relative;
-  width:100%;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  display:none;
+  position:relative; width:100%; height:100vh;
+  display:flex; justify-content:center; align-items:center;
+  text-align:center; padding:20px; display:none;
 }
-
 .fadeText{
-  position:absolute;
-  font-size:1.8rem;
-  color:#c84b7a;
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity 1s ease, transform 1s ease;
-  background: rgba(255, 255, 255, 0);
-  padding: 8px 16px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(200, 75, 123, 0);
+  position:absolute; font-size:1.8rem; color:#ff5697; opacity:0;
+  transform:translateY(30px); transition:opacity 1s ease, transform 1s ease;
+  background: rgba(255, 255, 255, 0); padding: 8px 16px; border-radius: 12px;
 }
-
 .fadeImage{
-  position:absolute;
-  width:80%;
-  max-width:400px;
-  border-radius:14px;
-  opacity:0;
-  transform:scale(0.95);
-  transition:opacity 1s ease, transform 1s ease;
-}
-#futureBox,#proposalBox{
-  display:none;
-  max-width:500px;
-  margin:40px auto;
-  text-align:center;
-}
-.future-box{
-  background:#ffe3ef;
-  border:2px solid #ffb3d8;
-  font-size:1.1rem;
-  border-radius:18px;
-  padding:25px;
-  margin:30px 10px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.12);
-  transform:translateY(40px);
-  opacity:0;
-  transition:all 0.7s ease;
-}
-.proposal{
-  background:rgba(255,255,255,0.9);
-  border-radius:18px;
-  padding:25px;
-  margin:30px 10px;
-  box-shadow:0 12px 30px rgba(225, 0, 255, 0.12);
-  transform:translateY(40px);
-  opacity:0;
-  transition:all 0.7s ease;
+  position:absolute; width:80%; max-width:400px; border-radius:14px;
+  opacity:0; transform:scale(0.95); transition:opacity 1s ease, transform 1s ease;
 }
 
-/* Animated love-sign background */
-.love-bg {
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -2;
-  pointer-events: none;
+#optionBox{
+  display:none; text-align:center; margin:300px 0px; vertical-align: middle;
 }
-
-.love-bg span {
-  position: absolute;
-  color: rgba(113, 13, 133, 0.411);
-  font-size: 2rem;
-  animation: floatLove 6s linear infinite;
-  filter: blur(1px);
-  user-select: none;
+.option-btn{
+  padding:18px 40px; margin:15px; border:none; border-radius:20px;
+  font-size:1.3rem; font-weight:700; cursor:pointer; transition:transform 0.3s, box-shadow 0.3s;
 }
-
-@keyframes floatLove {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translateY(-60px) scale(1.2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-120px) scale(1);
-    opacity: 0;
-  }
+.option-btn:first-child{
+  background:linear-gradient(135deg,#ff7eb9,#ff3d91); color:white;
+  box-shadow:0 8px 20px rgba(255,61,145,0.4);
 }
+.option-btn:first-child:hover{ transform:scale(1.1); box-shadow:0 12px 30px rgba(255,61,145,0.6);}
+.option-btn:last-child{
+  background:linear-gradient(135deg,#ffd7ea,#ff9acc); color:#333;
+  box-shadow:0 8px 20px rgba(255,61,145,0.2);
+}
+.option-btn:last-child:hover{ transform:scale(1.1); box-shadow:0 12px 30px rgba(255,61,145,0.4);}
 
-
-.btn{padding:14px 28px;border:none;border-radius:14px;font-size:1.1rem;margin:10px;cursor:pointer;font-weight:600;transition:transform 0.2s, background 0.3s;}
-.yes-btn{background:#ff3d91;color:#fff;} .yes-btn:hover{transform:scale(1.05);}
-.no-btn{background:#ffd7ea;color:#333;position:relative;} .no-btn:hover{transform:scale(1.05);}
-
-.heart,.confetti{position:absolute;pointer-events:none;font-size:24px;user-select:none;animation:floatUp linear forwards;}
-
-@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-200px) scale(1.6);opacity:0;}}
-@keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
-@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 12px 25px rgba(255,61,145,0.4);}50%{transform:scale(1.05);box-shadow:0 16px 35px rgba(255,61,145,0.6);}}
+/* Animations */
+@keyframes fadeUp{ to{opacity:1; transform:translateY(0);} }
+@keyframes pulse{0%,100%{transform:scale(1); box-shadow:0 12px 25px rgba(255,61,145,0.4);}
+50%{transform:scale(1.05); box-shadow:0 16px 35px rgba(255,61,145,0.6);}}
+/* love background */
+.love-bg{position:fixed;top:0;left:0;width:100vw;height:100vh;overflow:hidden;z-index:-2;pointer-events:none;}
+.love-bg span{position:absolute;color:rgb(113, 13, 133); font-size:2rem; animation:floatLove 6s linear infinite; filter:blur(1px);}
+@keyframes floatLove{0%{transform:translateY(0) scale(1);opacity:0.4;}50%{transform:translateY(-60px) scale(1.2);opacity:0.8;}100%{transform:translateY(-120px) scale(1);opacity:0;}}
 </style>
 </head>
 <body>
@@ -180,260 +82,70 @@ body{
 
 <div id="introContainer">
   <div id="introText">
-        <p>A Message To</p>
-
+    <p>A Message To</p>
     <h1>Maliha</h1>
-        <h1>🌸</h1>
-
+    <h1>🌸</h1>
   </div>
   <button id="startBtn">See</button>
 </div>
 
 <div id="textContainer"></div>
 
-<div id="futureBox" class="future-box">
-  So, the Final Question?
-</div> 
-
-
-
-<div id="proposalBox" class="proposal">
-  'No' Dilew problem nei (Diye dekho)<br><br>
-  <button class="btn yes-btn" onclick="accept()">Yes</button>
-  <button class="btn no-btn" id="noBtn">No</button>
+<div  id="optionBox">
+    <!-- <h1>Lol?</h1> -->
+  <button class="option-btn" onclick="goNext('1.html')">I dont like you</button>
+  <p>or</p>
+  <button class="option-btn" onclick="goNext('2.html')">Eshob e jaite chacchi na</button>
 </div>
 
 <script>
-// Background animated hearts
+// background hearts
 const loveBg = document.getElementById('loveBackground');
-
-function spawnLove() {
-  const span = document.createElement('span');
-  span.innerText = '💖';
-  span.style.left = Math.random() * 100 + 'vw';
-  span.style.top = '100vh';
-  span.style.fontSize = (1 + Math.random() * 2) + 'rem';
-  span.style.animationDuration = (4 + Math.random() * 3) + 's';
+function spawnLove(){
+  const span=document.createElement('span'); span.innerText='🌸';
+  span.style.left=Math.random()*100+'vw';
+  span.style.top='100vh';
+  span.style.fontSize=(1+Math.random()*2)+'rem';
+  span.style.animationDuration=(4+Math.random()*3)+'s';
   loveBg.appendChild(span);
-
-  setTimeout(() => span.remove(), 7000);
+  setTimeout(()=>span.remove(),7000);
 }
+setInterval(spawnLove,400);
 
-setInterval(spawnLove, 400);
-
-
-
+// sequence texts/images
 const sequence=[
-  {type:'text',content:"Maliha🌸"},
   {type:'text',content:"I have something to tell you…"},
-    {type:'text',content:""},
-    {type:'text',content:"I have something to tell you…"},
-    {type:'text',content:"I have something to tell you…"},
-  
-  {type:'image',src:"first.jpg"},
-  {type:'text',content:"random linesss"},
-  {type:'image',src:"2.jpg"},
-  {type:'text',content:"Random lines"},
-  {type:'text',content:"more random liines"},
-    {type:'text',content:"So. Now."},
-
-
-
+  // {type:'image',src:"first.jpg"},
+  // {type:'text',content:"Random lines…"},
+  // {type:'image',src:"2.jpg"},
+  // {type:'text',content:"So… Now…"},
 ];
-
 const container=document.getElementById('textContainer');
 let idx=0;
-
 function showNext(){
   const item=sequence[idx];
-  let div=document.createElement(item.type==='text' ? 'div' : 'img');
-
-  if(item.type==='text'){
-    div.className='fadeText';
-    div.innerText=item.content;
-  } else if(item.type==='image'){
-    div.className='fadeImage';
-    div.src=item.src;
-  } else if(item.type==='game'){
-    runGame(item.name);
-    return; // game handles next sequence
-  }
-
+  let div=document.createElement(item.type==='text'?'div':'img');
+  if(item.type==='text'){ div.className='fadeText'; div.innerText=item.content; }
+  else{ div.className='fadeImage'; div.src=item.src; }
   container.appendChild(div);
   setTimeout(()=>div.style.opacity=1,50);
-
   setTimeout(()=>{
     div.style.opacity=0;
     setTimeout(()=>{
       div.remove();
       idx++;
       if(idx<sequence.length) showNext();
-      else showMemoriesAndProposal();
+      else showOptions();
     },1000);
-  }, item.type==='text'? 2500 : 4500);
+  }, item.type==='text'?2500:4500);
 }
-
-function showMemoriesAndProposal(){
+function showOptions(){
   container.style.display='none';
-  const futureBox=document.getElementById('futureBox');
-  const proposal=document.getElementById('proposalBox');
-
-  futureBox.style.display='block';
-  futureBox.style.opacity=1;
-  futureBox.style.transform='translateY(0)';
-
-  setTimeout(()=>{
-    proposal.style.display='block';
-    proposal.style.opacity=1;
-    proposal.style.transform='translateY(0)';
-    startHearts();
-  },500);
+  document.getElementById('optionBox').style.display='block';
 }
+function goNext(url){ window.location.href=url; }
 
-/* Mini-games */
-function runGame(name){
-  if(name==='tapHeart'){
-    const info=document.createElement('div');
-    info.className='fadeText';
-    info.innerText="Tap the hearts to proceed! 💕";
-    container.appendChild(info);
-    info.style.opacity=1;
-
-    let tapped=0;
-    function spawnHeart(){
-      const heart=document.createElement('div');
-      heart.className='heart';
-      heart.innerText='❤';
-      heart.style.left=Math.random()*90+'%';
-      heart.style.top=Math.random()*80+'%';
-      heart.style.fontSize=24 + Math.random()*20 +'px';
-      heart.addEventListener('click', ()=>{
-        heart.remove();
-        tapped++;
-        if(tapped>=5){
-          info.remove();
-          idx++;
-          showNext();
-        }
-      });
-      document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(),6000);
-    }
-    const interval=setInterval(spawnHeart,400);
-    setTimeout(()=>clearInterval(interval), 8000);
-  }
-
-  if(name==='dragMemory'){
-    const box=document.createElement('div');
-    box.className='fadeText';
-    box.innerText="Drag the memory card into the box 💌";
-    container.appendChild(box);
-    box.style.opacity=1;
-
-    const card=document.createElement('div');
-    card.className='fadeImage';
-    card.style.width='150px';
-    card.style.height='100px';
-    card.style.background='#ffb6c1';
-    card.style.cursor='grab';
-    card.style.left='50%';
-    card.style.top='50%';
-    card.style.position='absolute';
-    card.style.borderRadius='12px';
-    container.appendChild(card);
-
-    let isDragging=false;
-    let offsetX, offsetY;
-    card.addEventListener('mousedown', e=>{
-      isDragging=true;
-      offsetX=e.offsetX;
-      offsetY=e.offsetY;
-    });
-    document.addEventListener('mousemove', e=>{
-      if(isDragging){
-        card.style.left=(e.clientX - offsetX)+'px';
-        card.style.top=(e.clientY - offsetY)+'px';
-      }
-    });
-    document.addEventListener('mouseup', e=>{
-      if(isDragging){
-        isDragging=false;
-        if(e.clientY > window.innerHeight/2){
-          card.remove();
-          box.remove();
-          idx++;
-          showNext();
-        }
-      }
-    });
-  }
-
-  if(name==='yesNoTrick'){
-    const div=document.createElement('div');
-    div.className='fadeText';
-    div.innerText="Do you like me more than chocolate? 🍫";
-    container.appendChild(div);
-    div.style.opacity=1;
-
-    const yesBtn=document.createElement('button');
-    yesBtn.className='btn yes-btn';
-    yesBtn.innerText='Yes';
-    yesBtn.onclick=()=>{div.remove(); yesBtn.remove(); noBtnGame.remove(); idx++; showNext();};
-
-    const noBtnGame=document.createElement('button');
-    noBtnGame.className='btn no-btn';
-    noBtnGame.innerText='No';
-    let nCount=0;
-    noBtnGame.onclick=()=>{nCount++; alert(['Oh no!','Try again 😅','Haha!'][nCount%3]);};
-
-    container.appendChild(yesBtn);
-    container.appendChild(noBtnGame);
-  }
-}
-
-/* floating hearts/confetti */
-function startHearts(){
-  setInterval(()=>{
-    const heart=document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerText='';
-    heart.style.left=Math.random()*90+'%';
-    heart.style.animationDuration=(3+Math.random()*2)+'s';
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-
-    const conf=document.createElement('div');
-    conf.classList.add('confetti');
-    conf.innerText='';
-    conf.style.left=Math.random()*90+'%';
-    conf.style.animationDuration=(2+Math.random()*2)+'s';
-    document.body.appendChild(conf);
-    setTimeout(()=>conf.remove(),5000);
-  },400);
-}
-
-/* YES/NO buttons */
-const noBtn=document.getElementById('noBtn');
-let noCount=0;
-noBtn.addEventListener('click',()=>{
-  noCount++;
-  const msgs=["Dhore dekhaw","Ehhh 😆","Lav nei 😅","Jedi meye 😠","Uffffff", "😒"];
-  noBtn.innerText=msgs[Math.min(noCount-1,msgs.length-1)];
-  const x=(Math.random()-0.5)*200;
-  const y=(Math.random()-0.5)*100;
-  noBtn.style.transform=`translate(${x}px, ${y}px) rotate(${Math.random()*15-7}deg)`;
-});
-
-function accept(){
-  document.body.innerHTML=`
-    <div style="padding:60px; text-align:center; font-size:2.2rem; color:#ff3d91;">
-      <br><br><br><br>YES! 💖<br><br>
-     
-    </div>
-  `;
-}
-
-/* START button */
+// start button
 document.getElementById('startBtn').addEventListener('click',()=>{
   document.getElementById('introContainer').style.display='none';
   container.style.display='flex';

@@ -1,0 +1,219 @@
+               <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Maliha 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family: "Bricolage Grotesque", sans-serif;
+  background: linear-gradient(180deg,#fff0f6,#ffe0ef,#ffd1ea);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+#textContainer{
+  position:relative;
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.fadeText{
+  position:absolute;
+  font-size:1.8rem;
+  color:#c84b7a;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 1s ease, transform 1s ease;
+}
+.fadeImage{
+  position:absolute;
+  width:80%;
+  max-width:400px;
+  border-radius:14px;
+  opacity:0;
+  transform:scale(0.95);
+  transition:opacity 1s ease, transform 1s ease;
+}
+#memories,#futureBox,#proposalBox{
+  display:none;
+  max-width:500px;
+  margin:40px auto;
+  text-align:center;
+}
+
+.memory,.future-box,.proposal{
+  background:rgba(255,255,255,0.9);
+  border-radius:18px;
+  padding:25px;
+  margin:30px 10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  transform:translateY(40px);
+  opacity:0;
+  transition:all 0.7s ease;
+}
+.memory img{width:100%; border-radius:14px; margin-bottom:10px;}
+.future-box{background:#ffe3ef;border:2px solid #ffb3d8;font-size:1.1rem;}
+.btn{padding:14px 28px;border:none;border-radius:14px;font-size:1.1rem;margin:10px;cursor:pointer;font-weight:600;transition:transform 0.2s, background 0.3s;}
+.yes-btn{background:#ff3d91;color:#fff;} .yes-btn:hover{transform:scale(1.05);}
+.no-btn{background:#ffd7ea;color:#333;position:relative;} .no-btn:hover{transform:scale(1.05);}
+.heart,.confetti{position:absolute;pointer-events:none;font-size:24px;user-select:none;animation:floatUp linear forwards;}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-200px) scale(1.6);opacity:0;}}
+
+@media screen and (max-width: 400px) {
+
+    .body {
+        margin: 0px 90px;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="textContainer"></div>
+
+
+
+<div id="futureBox" class="future-box">
+  So, The Final question?
+</div>
+
+
+
+<div id="proposalBox" class="proposal">
+  'No' dile problem nai (Diye Dekho)<br><br>
+  <button class="btn yes-btn" onclick="accept()">Yes</button>
+  <button class="btn no-btn" id="noBtn" onclick="reject()">No</button>
+</div>
+
+<script>
+const sequence=[
+  {type:'text',content:"Same... 🌸"},
+  {type:'text',content:"Amaro iccha nai.."},
+  // {type:'image',src:"first.jpg"},
+  {type:'text',content:"সকল পণ্য দেখুন"},
+  // {type:'image',src:"https://placehold.co/600x400/ffb6c1/333?text=Memory+Pic+2"},
+  {type:'text',content:"Our moments together have been unforgettable 💖"},
+  // {type:'image',src:"https://placehold.co/600x400/ffd1e8/333?text=Memory+Pic+3"},
+  // {type:'text',content:"Little memories that always make me smile 😆"},
+  // {type:'text',content:"And imagine our silly, happy future together ✨"}
+];
+
+const container=document.getElementById('textContainer');
+let idx=0;
+
+function showNext(){
+  container.innerHTML='';
+  const item=sequence[idx];
+  if(item.type==='text'){
+    const div=document.createElement('div');
+    div.className='fadeText';
+    div.innerText=item.content;
+    container.appendChild(div);
+    setTimeout(()=>div.style.opacity=1,50);
+    setTimeout(()=>{
+      div.style.opacity=0;
+      idx++;
+      if(idx<sequence.length) setTimeout(showNext,800);
+      else showMemoriesAndProposal();
+    },2500);
+  } else if(item.type==='image'){
+    const img=document.createElement('img');
+    img.src=item.src;
+    img.className='fadeImage';
+    container.appendChild(img);
+    setTimeout(()=>{img.style.opacity=1; img.style.transform='scale(1)';},50);
+    setTimeout(()=>{
+      img.style.opacity=0;
+      idx++;
+      if(idx<sequence.length) setTimeout(showNext,400);
+      else showMemoriesAndProposal();
+    },4500); // images stay longer
+  }
+}
+
+function showMemoriesAndProposal(){
+  container.style.display='none';
+  const memories=document.querySelectorAll('.memory');
+  const futureBox=document.getElementById('futureBox');
+  const proposal=document.getElementById('proposalBox');
+
+  memories.forEach((m,i)=>{
+    setTimeout(()=>{
+      m.style.display='block';
+      m.style.opacity=1;
+      m.style.transform='translateY(0)';
+    },i*1000);
+  });
+  setTimeout(()=>{
+    futureBox.style.display='block';
+    futureBox.style.opacity=1;
+    futureBox.style.transform='translateY(0)';
+  },memories.length*1000+500);
+
+  setTimeout(()=>{
+    proposal.style.display='block';
+    proposal.style.opacity=1;
+    proposal.style.transform='translateY(0)';
+    startHearts();
+  },memories.length*1000+1500);
+}
+
+/* floating hearts/confetti for fun */
+function startHearts(){
+  setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText='';
+    heart.style.left=Math.random()*90+'%';
+    heart.style.animationDuration=(3+Math.random()*2)+'s';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+
+    const conf=document.createElement('div');
+    conf.classList.add('confetti');
+    conf.innerText='';
+    conf.style.left=Math.random()*90+'%';
+    conf.style.animationDuration=(2+Math.random()*2)+'s';
+    document.body.appendChild(conf);
+    setTimeout(()=>conf.remove(),5000);
+  },400);
+}
+
+/* NO button funny */
+const noBtn=document.getElementById('noBtn');
+let noCount=0;
+function reject(){
+  noCount++;
+  const msgs=["Dhore dekhaw","Ehhh 😆","Lav nei 😅","Jedi meye 😠","Uffffff", "😒"];
+  noBtn.innerText=msgs[Math.min(noCount-1,msgs.length-1)];
+  const x=(Math.random()-0.5)*200;
+  const y=(Math.random()-0.5)*100;
+  noBtn.style.transform=`translate(${x}px, ${y}px) rotate(${Math.random()*15-7}deg)`;
+}
+
+/* YES button */
+function accept(){
+  document.body.innerHTML=`
+    <div style="padding:60px; text-align:center; font-size:1.6rem; color:#ff3d91;">
+      You said yes! 💖<br><br>
+      I’m the happiest person alive.
+    </div>
+  `;
+}
+
+/* INIT */
+showNext();
+</script>
+
+</body>
+</html>
